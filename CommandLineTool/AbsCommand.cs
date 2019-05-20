@@ -21,7 +21,7 @@ namespace CommandlineTool
 
         public virtual string InLineExecute(string[] parameter)
         {
-            return "";
+            throw new InvalidOperationException("error, inline execution not supported");
         }
     }
 }
