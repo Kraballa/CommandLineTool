@@ -24,7 +24,8 @@ namespace CommandLineTool
                 new Info(),
                 new VerbalNumber(),
                 new Title(),
-                new _8Ball()
+                new _8Ball(),
+                new Beep()
             };
 
         static void Main(string[] args)
