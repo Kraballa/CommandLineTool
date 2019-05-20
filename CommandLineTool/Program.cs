@@ -61,7 +61,7 @@ namespace CommandlineTool
 
             foreach(AbsCommand command in commandList)
             {
-                if (command.CheckPattern(split[0]))
+                if (command.Regex.Match(split[0]).Success)
                 {
                     try
                     {

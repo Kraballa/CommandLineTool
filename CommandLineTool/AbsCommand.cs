@@ -17,11 +17,6 @@ namespace CommandlineTool
         public string Description;
         public string Command;
 
-        public bool CheckPattern(string input)
-        {
-            return Regex.Match(input).Success;
-        }
-
         public abstract int Execute(string[] parameter);
 
         public virtual string InLineExecute(string[] parameter)
