@@ -16,6 +16,7 @@ namespace CommandlineTool
         public Regex Regex { get; protected set; }
         public string Description;
         public string Command;
+        public int NumParams { get; protected set; }
 
         public abstract int Execute(string[] parameter);
 

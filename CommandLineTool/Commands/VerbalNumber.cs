@@ -20,6 +20,7 @@ namespace CommandlineTool.Commands
             AllowInLine = true;
             Command = "number";
             Description = "prints out the number verbally";
+            NumParams = 1;
         }
 
         public override int Execute(string[] parameter)
@@ -30,7 +31,14 @@ namespace CommandlineTool.Commands
 
         public override string InLineExecute(string[] parameter)
         {
-            return LongToString(long.Parse(parameter[0]));
+            try
+            {
+                return LongToString(long.Parse(parameter[0]));
+            }
+            catch (FormatException e)
+            {
+                return parameter[0] + "\n" + e.StackTrace;
+            }
         }
 
         private string LongToString(long i)

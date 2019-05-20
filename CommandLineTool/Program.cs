@@ -63,16 +63,23 @@ namespace CommandlineTool
             {
                 if (command.Regex.Match(split[0]).Success)
                 {
-                    try
+                    if(command.NumParams == parameters.Length)
                     {
-                        returnCode = command.Execute(parameters);
+                        try
+                        {
+                            returnCode = command.Execute(parameters);
+                        }
+                        catch (Exception e)
+                        {
+                            returnCode = AbsCommand.ERROR;
+                            Console.WriteLine(e.StackTrace);
+                        }
                     }
-                    catch(Exception e)
+                    else
                     {
                         returnCode = AbsCommand.ERROR;
-                        Console.WriteLine(e.StackTrace);
+                        Console.WriteLine("error, required " + command.NumParams + " parameters but was given " + parameters.Length);
                     }
-                    
                 }
             }
 
@@ -100,18 +107,31 @@ namespace CommandlineTool
             {
                 if (command.AllowInLine)
                 {
-                    Regex inlineRegex = new Regex("<" + command.Regex + " [ a-zA-Z0-9]*>");
+                    Regex inlineRegex = new Regex("<" + command.Regex + "[ a-zA-Z0-9]*>");
                     Match match = inlineRegex.Match(input);
                     //match every inline command
                     while (match.Success)
                     {
                         matched = true;
                         //extract parameter from call
-                        string parameter = match.Value.Replace('<', ' ').Replace('>', ' ');
-                        parameter = parameter.Replace(command.Command," ").Trim();
-                        string ret = command.InLineExecute(new string[] { parameter });
-                        string[] split = input.Split(match.Value, 2);
-                        input = split[0] + ret + split[1];
+                        string[] splitCall = match.Value.Replace('<', ' ').Replace('>', ' ').Trim().Split(" ");
+                        string[] parameters = new string[splitCall.Length - 1];
+                        for (int i = 1; i < splitCall.Length; i++)
+                        {
+                            parameters[i - 1] = splitCall[i];
+                        }
+
+                        string[] splitInputString = input.Split(match.Value, 2);
+                        //if parameters don't comfort to the specified amount, ignore
+                        if (parameters.Length == command.NumParams)
+                        {
+                            string ret = command.InLineExecute(parameters);
+                            input = splitInputString[0] + ret + splitInputString[1];
+                        }
+                        else
+                        {
+                            input = splitInputString[0] + splitInputString[1];
+                        }
 
                         match = inlineRegex.Match(input);
                     }
