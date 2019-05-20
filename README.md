@@ -7,6 +7,7 @@ Create a new class and extend AbsCommand. In the constructor simply set the foll
 * `Command`, name of your command because it might differ from Regex
 * `Description`, description of your command that gets printed with the `help` command
 * `AllowInLine`, boolean that represents whether your command should be able to get called inside a line, false by default
+* `NumParams`, the number of parameters the command expects
 
 ### "Inline Execution"
 Imagine you want the result of a command be embedded into a sentence. That's what Inline Execution is.
