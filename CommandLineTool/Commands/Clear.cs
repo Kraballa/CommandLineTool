@@ -4,7 +4,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace CommandlineTool.Commands
+namespace CommandLineTool.Commands
 {
     public class Clear : AbsCommand
     {

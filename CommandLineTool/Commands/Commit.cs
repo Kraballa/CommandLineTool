@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace CommandlineTool.Commands
+namespace CommandLineTool.Commands
 {
     public class Commit : AbsCommand
     {

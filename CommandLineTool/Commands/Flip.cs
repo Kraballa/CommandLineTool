@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace CommandlineTool.Commands
+namespace CommandLineTool.Commands
 {
     public class Flip : AbsCommand
     {

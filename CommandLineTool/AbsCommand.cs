@@ -4,7 +4,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace CommandlineTool
+namespace CommandLineTool
 {
     public abstract class AbsCommand
     {

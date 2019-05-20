@@ -1,9 +1,9 @@
-﻿using CommandlineTool.Commands;
+﻿using CommandLineTool.Commands;
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace CommandlineTool
+namespace CommandLineTool
 {
     /// <summary>
     /// Runs the console and parses inputs.
@@ -24,8 +24,7 @@ namespace CommandlineTool
                 new Info(),
                 new VerbalNumber(),
                 new Title(),
-                new _8Ball(),
-                new OpenUrl()
+                new _8Ball()
             };
 
         static void Main(string[] args)
