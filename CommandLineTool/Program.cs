@@ -51,7 +51,7 @@ namespace CommandlineTool
         public static void MatchPatterns(string input)
         {
             int returnCode = AbsCommand.UNDEFINED;
-            string[] split = input.Split(" ");
+            string[] split = input.Split(" ", StringSplitOptions.RemoveEmptyEntries);
             string[] parameters = new string[split.Length-1];
             
             for(int i = 1; i < split.Length; i++)
@@ -114,7 +114,7 @@ namespace CommandlineTool
                     {
                         matched = true;
                         //extract parameter from call
-                        string[] splitCall = match.Value.Replace('<', ' ').Replace('>', ' ').Trim().Split(" ");
+                        string[] splitCall = match.Value.Replace('<', ' ').Replace('>', ' ').Trim().Split(" ", StringSplitOptions.RemoveEmptyEntries);
                         string[] parameters = new string[splitCall.Length - 1];
                         for (int i = 1; i < splitCall.Length; i++)
                         {
