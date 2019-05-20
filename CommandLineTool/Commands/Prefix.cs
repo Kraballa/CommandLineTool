@@ -13,6 +13,7 @@ namespace CommandlineTool.Commands
             Regex = new Regex("prefix");
             Command = "prefix";
             Description = "changes prefix";
+            NumParams = 1;
         }
 
         public override int Execute(string[] parameter)
