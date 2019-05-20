@@ -122,7 +122,7 @@ namespace CommandlineTool
                         }
 
                         string[] splitInputString = input.Split(match.Value, 2);
-                        //if parameters don't comfort to the specified amount, ignore
+                        //if parameters don't comfort to the specified amount, remove command call
                         if (parameters.Length == command.NumParams)
                         {
                             string ret = command.InLineExecute(parameters);
