@@ -37,7 +37,7 @@ namespace CommandlineTool.Commands
             }
             catch (FormatException e)
             {
-                return parameter[0] + "\n" + e.StackTrace;
+                return e.StackTrace;
             }
         }
 

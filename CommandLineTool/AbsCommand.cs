@@ -18,8 +18,19 @@ namespace CommandlineTool
         public string Command;
         public int NumParams { get; protected set; }
 
+        /// <summary>
+        /// Details what happens when the command is executed.
+        /// </summary>
+        /// <param name="parameter">Parameter list if it needs any. Set <code>NumParams</code> before using!</param>
+        /// <returns>return code constants defined in <code>AbsCommand</code></returns>
         public abstract int Execute(string[] parameter);
 
+        /// <summary>
+        /// Similar to <code>Execute</code> however implementation may differ. Only use if applicable.
+        /// </summary>
+        /// <param name="parameter">Parameter list if it needs any. Set <code>NumParams</code> before using!</param>
+        /// <returns>Returns the string that represents the result of the execution. This will replace the command call 
+        /// in the final output string</returns>
         public virtual string InLineExecute(string[] parameter)
         {
             throw new InvalidOperationException("error, inline execution not supported");
