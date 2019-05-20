@@ -77,7 +77,7 @@ namespace CommandlineTool
                     }
                     else
                     {
-                        returnCode = AbsCommand.ERROR;
+                        returnCode = AbsCommand.UNDEFINED;
                         Console.WriteLine("error, required " + command.NumParams + " parameters but was given " + parameters.Length);
                     }
                 }
@@ -86,11 +86,11 @@ namespace CommandlineTool
             switch (returnCode)
             {
                 case AbsCommand.ERROR:
-                    Console.WriteLine("error during execution");
+                    Console.WriteLine("execution failed");
                     break;
 
                 case AbsCommand.UNDEFINED:
-                    Console.WriteLine("unrecognised command, type /help for a list of commands");
+                    Console.WriteLine("unrecognised command, type " + Prefix + "help for a list of commands");
                     break;
             }
         }
